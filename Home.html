@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Defect Prediction</title>
+    <style type="text/css">
+        header h1 {
+            font-size: 50px; font-weight: 600;
+            background-image:radial-gradient(circle, #553c9a, #ee4b2b);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-align: center;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius:10px;
+        }
+        div
+        {
+            padding:15px;
+        }
+        .main
+        {
+            border-radius: 10px;
+            border:1px solid ;
+            width: 850px;
+            position: relative;
+            left:350px;
+            top:60px;
+            height: 450px;
+        }
+        .move
+        {
+            position: absolute; left:220px;
+        }
+        .move2
+        {
+            position: absolute; left: 150px;
+        }
+        .subcontainer
+        {
+            position: absolute;
+            left: 530px;
+            top:1px;
+        }
+    </style>
+
+</head>
+<body style="background-color: #ffffff;">
+    <form action="{% url 'home' %}" method="POST">
+        {% csrf_token %}
+
+        <header>
+            <h1>Software Defect Prediction</h1>
+        </header>
+        <div style="position: absolute;left: 350px; font-size:40px;">Enter the values of attributes:</div>
+    <div class='main'>
+        <div>
+            <label for="input1" >Lines of Code : </label>
+            <input type="number" id="input1" name="input1" min="0" step="any" class="move">
+        </div>
+        <div>
+            <label for="input2">Cyclomatic comolexity v(g): </label>
+            <input type="number" id="input2" name="input2" min="0" step="any" class="move">
+        </div>
+        <div>
+            <label for="input3">Essential Complexity ev(g):</label>
+            <input type="number" id="input3" name="input3" min="0" step="any" class="move">
+        </div>
+        <div>
+            <label for="input4">Operators and Operads n: </label>
+            <input type="number" id="input4" name="input4" min="0" step="any" class="move">
+        </div>
+        <div>
+            <label for="input5">Volume v</label>
+            <input type="number" id="input5" name="input5" min="0" step="any" class="move">
+        </div>
+        <div>
+            <label for="input6">Difficulty d</label>
+            <input type="number" id="input6" name="input6" min="0" step="any" class="move">
+        </div>
+        <div class='subcontainer'>
+            <div>
+                <label for="input7">Intelligence i</label>
+                <input type="number" id="input7" name="input7" min="0" step="any" class="move2">
+            </div>
+            <div>
+                <label for="input8">Effort e</label>
+                <input type="number" id="input8" name="input8" min="0" step="any" class="move2">
+            </div>
+            <div>
+                <label for="input9">Delivered bugs:</label>
+                <input type="number" id="input9" name="input9" min="0" step="any" class="move2">
+            </div>
+            <div>
+                <label for="input10">Time estimator t</label>
+                <input type="number" id="input10" name="input10" min="0" step="any" class="move2">
+            </div>
+            <div>
+                <label for="input11">Commented lines</label>
+                <input type="number" id="input11" name="input11" min="0" step="any" class="move2">
+            </div>
+            <div>
+                <label for="input12">Blank lines</label>
+                <input type="number" id="input12" name="input12" min="0" step="any" class="move2">
+            </div>
+        </div>
+        <div style="position: absolute;left:390px;">
+            <input type="submit" class='button'>
+        </div>
+    </div>
+    </form>
+    <div style="position:relative; left: 730px; top: -75px;">
+        <h3>Software defect : {{result}}</h3>
+        <h4>0 -- No defect</h4>
+        <h4>1 -- Defect</h4>
+    </div>
+</body>
+</html>
